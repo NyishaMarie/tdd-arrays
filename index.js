@@ -10,7 +10,7 @@
  * getFirst([true,false,true]); // true
  */
 export function getFirst(array) {
-  // TODO
+  return array[0];
 }
 
 /**
@@ -25,7 +25,7 @@ export function getFirst(array) {
  * getLast([true,false,true]); // true
  */
 export function getLast(array) {
-  // TODO
+  return array[array.length - 1];
 }
 
 /**
@@ -42,8 +42,11 @@ export function getLast(array) {
  * getFirstLast([42]); // [42]
  */
 export function getFirstLast(array) {
-  // TODO
+  if (array.length=== 0) return []; 
+  if (array.length===1) return array; 
+  return [getFirst(array), getLast(array)]; 
 }
+
 
 /**
  * @param {string} str1 - the first string
@@ -59,7 +62,8 @@ export function getFirstLast(array) {
  * sharesFirstLetter("cat", "dog"); // false
  */
 export function sharesFirstLetter(str1, str2) {
-  // TODO
+  if (str1.length === 0 || str2.length === 0) return false;
+  return str1[0] === str2[0];
 }
 
 /**
@@ -74,7 +78,11 @@ export function sharesFirstLetter(str1, str2) {
  * quintuple([]); // []
  */
 export function quintuple(numbers) {
-  // TODO
+  let result = [];
+  for (const num of numbers) {
+    result.push(num * 5);
+  }
+  return result;
 }
 
 /**
@@ -95,8 +103,17 @@ export function quintuple(numbers) {
  * pluralize([]); // []
  */
 export function pluralize(words) {
-  // TODO
+let plurals = [];
+  for (const word of words) {
+    if (word.endsWith("s")) {
+      plurals.push(word + "es");
+    } else {
+      plurals.push(word + "s");
+    }
+  }
+  return plurals;
 }
+
 
 /**
  * @param {boolean[]} attendance - an array representing student attendance
@@ -112,7 +129,13 @@ export function pluralize(words) {
  * countAttendance([]); // 0
  */
 export function countAttendance(attendance) {
-  // TODO
+  let count = 0;
+  for (const studentPresent of attendance) {
+    if (studentPresent) {
+      count += 1;
+    }
+  }
+  return count;
 }
 
 /**

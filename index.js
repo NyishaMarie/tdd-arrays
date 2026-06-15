@@ -151,8 +151,16 @@ export function countAttendance(attendance) {
  * getLongestWord(["a", "ab", "abc"]); // "abc"
  */
 export function getLongestWord(sentence) {
-  // TODO
+if (sentence.length=== 0) return null; 
+let best = sentence[0]; 
+for (const word of sentence) { 
+if (word.length>best.length) { 
+best = word;
+} 
+} 
+return best; 
 }
+
 
 /**
  * @param {string[]} playlist - an array of song titles
@@ -168,8 +176,14 @@ export function getLongestWord(sentence) {
  * findSong([], "Midnight Drive"); // -1
  */
 export function findSong(playlist, song) {
-  // TODO
+for (let i = 0; i < playlist.length; i = i + 1) { 
+if (playlist[i] === song) { 
+return i; 
+} 
+} 
+return -1;
 }
+
 
 /**
  * @param {string[][]} map - a 2D array in which each element is a string that
@@ -185,5 +199,13 @@ export function findSong(playlist, song) {
  * findSpy([["tree","lamp"],["pigeon","guard"]]); // null
  */
 export function findSpy(map) {
-  // TODO
+for (let row = 0; row < map.length; row = row + 1) {
+ for (let col = 0; col < map[row].length; col = col + 1) { 
+if (map[row][col] === "spy") { 
+return [row, col]; 
 }
+} 
+}
+return null; 
+}
+
